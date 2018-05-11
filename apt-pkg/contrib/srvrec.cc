@@ -10,6 +10,7 @@
 
 #include <netdb.h>
 
+#include <arpa/inet.h>
 #include <netinet/in.h>
 #include <arpa/nameser.h>
 #include <resolv.h>
@@ -34,6 +35,15 @@ bool SrvRec::operator==(SrvRec const &other) const
 
 bool GetSrvRecords(std::string host, int port, std::vector<SrvRec> &Result)
 {
+   // try SRV only for hostnames, not for IP addresses
+   {
+      struct in_addr addr4;
+      struct in6_addr addr6;
+      if (inet_pton(AF_INET, host.c_str(), &addr4) == 1 ||
+	  inet_pton(AF_INET6, host.c_str(), &addr6) == 1)
+	 return true;
+   }
+
    std::string target;
    int res;
    struct servent s_ent_buf;
