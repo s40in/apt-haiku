@@ -1,7 +1,7 @@
 # Turkish translation for apt
 # Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
 # Copyright (c) 2013 Debian L10n Turkish 2013
-# Mert Dirik <mertdirik@gmail.com>, 2013-2014.
+# Mert Dirik <mertdirik@gmail.com>, 2013-2018.
 # This file is distributed under the same license as the apt package.
 # Rosetta Contributors, 2009.
 msgid ""
@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: apt 1.0.5\n"
 "Report-Msgid-Bugs-To: APT Development Team <deity@lists.debian.org>\n"
 "POT-Creation-Date: 2017-09-13 17:18+0000\n"
-"PO-Revision-Date: 2016-09-24 03:24+0300\n"
+"PO-Revision-Date: 2018-01-03 16:32+0300\n"
 "Last-Translator: Mert Dirik <mertdirik@gmail.com>\n"
 "Language-Team: Debian l10n Turkish <debian-l10n-turkish@lists.debian.org>\n"
 "Language: tr\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n!=1;\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 1.8.11\n"
 "X-Launchpad-Export-Date: 2013-02-04 12:16+0000\n"
 "X-Poedit-SearchPath-0: .\n"
 
@@ -431,16 +431,13 @@ msgstr ""
 "'%s' kullanıcısı sistemde mevcut olmadığı için ayrıcalıklar bırakılamıyor"
 
 #: apt-pkg/acquire.cc
-#, fuzzy, c-format
-#| msgid ""
-#| "Can't drop privileges for downloading as file '%s' couldn't be accessed "
-#| "by user '%s'."
+#, c-format
 msgid ""
 "Download is performed unsandboxed as root as file '%s' couldn't be accessed "
 "by user '%s'."
 msgstr ""
-"'%2$s' kullanıcısının '%1$s' dosyasına erişimi olmadığı için dosya "
-"indirilirken ayrıcalıklar bırakılamıyor."
+"'%2$s' kullanıcısının '%1$s' dosyasına erişimi olmadığı için indirme işlemi "
+"root kullanıcısı olarak yapılıyor."
 
 #: apt-pkg/acquire.cc apt-pkg/clean.cc
 #, c-format

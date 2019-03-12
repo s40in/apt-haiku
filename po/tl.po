@@ -1114,7 +1114,7 @@ msgstr "Iniluklok ang %s"
 #: apt-pkg/deb/dpkgpm.cc
 #, fuzzy, c-format
 msgid "Directory '%s' missing"
-msgstr "Nawawala ang directory ng talaan %spartial."
+msgstr "Nawawala ang directory ng talaan %s."
 
 #: apt-pkg/deb/dpkgpm.cc apt-pkg/edsp.cc
 #, fuzzy, c-format
