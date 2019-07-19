@@ -39,6 +39,11 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+
+#ifdef __HAIKU__
+time_t	timegm(struct tm *tm);
+#endif
+
 #include <unistd.h>
 
 #include <apti18n.h>

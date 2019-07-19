@@ -39,14 +39,17 @@ find_path(BERKELEY_DB_INCLUDE_DIRS db.h
   ${CMAKE_INSTALL_FULL_INCLUDEDIR}/db5
   /usr/local/include/db5
   /usr/include/db5
+ /boot/system/develop/headers
 
   ${CMAKE_INSTALL_FULL_INCLUDEDIR}/db4
   /usr/local/include/db4
   /usr/include/db4
+ /boot/system/develop/headers
 
   ${CMAKE_INSTALL_FULL_INCLUDEDIR}
   /usr/local/include
   /usr/include
+ /boot/system/develop/headers
 
   NO_DEFAULT_PATH
 )

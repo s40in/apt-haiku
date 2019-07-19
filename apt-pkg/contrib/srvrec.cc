@@ -46,11 +46,19 @@ bool GetSrvRecords(std::string host, int port, std::vector<SrvRec> &Result)
    int res;
    struct servent s_ent_buf;
    struct servent *s_ent = nullptr;
+   
    std::vector<char> buf(1024);
 
+#ifdef __HAIKU__
+   char s_buf[1024];
+   struct servent_data *s_data = (servent_data *)&s_buf;
+   s_ent = getservbyport_r(htons(port), "tcp", &s_ent_buf, s_data);
+#else
    res = getservbyport_r(htons(port), "tcp", &s_ent_buf, buf.data(), buf.size(), &s_ent);
+#endif
    if (res != 0 || s_ent == nullptr)
       return false;
+
 
    strprintf(target, "_%s._tcp.%s", s_ent->s_name, host.c_str());
    return GetSrvRecords(target, Result);

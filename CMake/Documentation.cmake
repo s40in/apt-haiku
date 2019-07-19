@@ -36,9 +36,12 @@ find_path(DOCBOOK_XSL manpages/docbook.xsl
          /usr/share/sgml/docbook/xsl-stylesheets
          # Fink
          ${CMAKE_INSTALL_PREFIX}/share/xml/xsl/docbook-xsl
+	#Haiku
+	/boot/system/data/xml/docbook/xsl-stylesheets-1.79.2/
          # FreeBSD
          ${CMAKE_INSTALL_PREFIX}/share/xsl/docbook/
          NO_DEFAULT_PATH)
+
 
 if(NOT DOCBOOK_XSL)
     message(FATAL_ERROR "Could not find docbook xsl")

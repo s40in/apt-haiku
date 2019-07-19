@@ -1,0 +1,8 @@
+libdir=/boot/system/lib
+includedir=/boot/system/include
+
+Name: apt-pkg
+Description: package management runtime library
+Version: 1.9.1
+Libs: -L${libdir} -lapt-pkg -pthread
+Cflags: -I${includedir}

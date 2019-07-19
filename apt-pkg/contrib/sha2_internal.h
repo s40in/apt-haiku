@@ -41,6 +41,10 @@
  */
 #include <sys/types.h>
 
+#ifdef __HAIKU__
+#include <stdint.h>
+#endif
+
 #ifdef SHA2_USE_INTTYPES_H
 
 #include <inttypes.h>

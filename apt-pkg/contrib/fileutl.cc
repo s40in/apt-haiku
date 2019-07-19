@@ -74,6 +74,11 @@
 #include <systemd/sd-bus.h>
 #endif
 #include <endian.h>
+
+#ifdef __HAIKU__
+#define	le32toh(x)	((uint32_t)(x))
+#endif
+
 #include <stdint.h>
 
 #if __gnu_linux__

@@ -3,6 +3,7 @@
 
 #ifdef HAVE_VFS_H
 #include <sys/vfs.h>
+#include <sys/statvfs.h>
 #endif
 
 #ifdef HAVE_MOUNT_H
