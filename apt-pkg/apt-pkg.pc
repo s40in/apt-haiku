@@ -1,5 +1,5 @@
-libdir=/boot/system/lib
-includedir=/boot/system/include
+libdir=/boot/home/config/non-packaged/lib
+includedir=/boot/home/config/non-packaged/include
 
 Name: apt-pkg
 Description: package management runtime library

@@ -40,10 +40,6 @@
 #include <string.h>
 #include <time.h>
 
-#ifdef __HAIKU__
-time_t	timegm(struct tm *tm);
-#endif
-
 #include <unistd.h>
 
 #include <apti18n.h>
@@ -992,6 +988,7 @@ static time_t timegm(struct tm *t)
    return ret;
 }
 #endif
+
 									/*}}}*/
 // RFC1123StrToTime - Converts an HTTP1.1 full date strings into a time_t	/*{{{*/
 // ---------------------------------------------------------------------

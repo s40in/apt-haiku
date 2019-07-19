@@ -19,8 +19,8 @@ target_compile_definitions(connectlib PRIVATE ${GNUTLS_DEFINITIONS})
 target_include_directories(connectlib PRIVATE ${GNUTLS_INCLUDE_DIR})
 
 # Additional libraries to link against for networked stuff
-target_link_libraries(http ${GNUTLS_LIBRARIES})
-target_link_libraries(ftp ${GNUTLS_LIBRARIES})
+target_link_libraries(http -lnetwork -lroot ${GNUTLS_LIBRARIES})
+target_link_libraries(ftp -lnetwork -lroot ${GNUTLS_LIBRARIES})
 
 # Install the library
 install(TARGETS file copy store gpgv cdrom http ftp rred rsh mirror

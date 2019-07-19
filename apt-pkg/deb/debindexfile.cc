@@ -10,6 +10,7 @@
 // Include Files							/*{{{*/
 #include <config.h>
 
+#include <iostream>
 
 #include <apti18n.h>
 #include <apt-pkg/configuration.h>
@@ -25,7 +26,7 @@
 #include <apt-pkg/pkgrecords.h>
 #include <apt-pkg/srcrecords.h>
 
-#include <iostream>
+//#include <iostream>
 #include <memory>
 #include <sstream>
 #include <string>

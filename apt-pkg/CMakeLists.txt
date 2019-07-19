@@ -51,7 +51,7 @@ target_include_directories(apt-pkg
 )
 
 target_link_libraries(apt-pkg
-                      PRIVATE -lutil ${CMAKE_DL_LIBS} ${RESOLV_LIBRARIES}
+                      PRIVATE -lnetwork -lroot ${CMAKE_DL_LIBS} 
                              ${CMAKE_THREAD_LIBS_INIT}
                              ${ZLIB_LIBRARIES}
                              ${BZIP2_LIBRARIES}
@@ -73,5 +73,5 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/apt-pkg.pc DESTINATION ${CMAKE_INSTALL
 flatify(${PROJECT_BINARY_DIR}/include/apt-pkg/ "${headers}")
 
 if(CMAKE_BUILD_TYPE STREQUAL "Coverage")
-  target_link_libraries(apt-pkg PUBLIC noprofile)
+  target_link_libraries(apt-pkg -lroot -lnetwork PUBLIC noprofile)
 endif()

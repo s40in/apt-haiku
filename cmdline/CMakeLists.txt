@@ -11,28 +11,30 @@ add_executable(apt-extracttemplates apt-extracttemplates.cc)
 add_executable(apt-internal-solver apt-internal-solver.cc)
 add_executable(apt-dump-solver apt-dump-solver.cc)
 add_executable(apt-internal-planner apt-internal-planner.cc)
-add_vendor_file(OUTPUT apt-key
-                INPUT apt-key.in
-                MODE 755
-                VARIABLES keyring-filename
-                          keyring-removed-filename
-                          keyring-master-filename
-                          keyring-uri keyring-package)
+
+#disable in Haiku
+#add_vendor_file(OUTPUT apt-key
+#               INPUT apt-key.in
+#                MODE 755
+#               VARIABLES keyring-filename
+#                          keyring-removed-filename
+#                          keyring-master-filename
+#                          keyring-uri keyring-package)
 
 
 # Link the executables against the libraries
-target_link_libraries(apt apt-pkg apt-private)
-target_link_libraries(apt-cache apt-pkg apt-private)
-target_link_libraries(apt-get apt-pkg apt-private)
-target_link_libraries(apt-config apt-pkg apt-private)
-target_link_libraries(apt-cdrom apt-pkg apt-private)
-target_link_libraries(apt-helper apt-pkg apt-private)
-target_link_libraries(apt-mark apt-pkg apt-private)
-target_link_libraries(apt-sortpkgs apt-pkg apt-private)
-target_link_libraries(apt-extracttemplates apt-pkg apt-private)
-target_link_libraries(apt-internal-solver apt-pkg apt-private)
-target_link_libraries(apt-dump-solver apt-pkg apt-private)
-target_link_libraries(apt-internal-planner apt-pkg apt-private)
+target_link_libraries(apt -lnetwork -lroot apt-pkg apt-private)
+target_link_libraries(apt-cache -lnetwork -lroot apt-pkg apt-private)
+target_link_libraries(apt-get -lnetwork -lroot apt-pkg apt-private)
+target_link_libraries(apt-config -lnetwork -lroot apt-pkg apt-private)
+target_link_libraries(apt-cdrom -lnetwork -lroot apt-pkg apt-private)
+target_link_libraries(apt-helper -lnetwork -lroot apt-pkg apt-private)
+target_link_libraries(apt-mark -lnetwork -lroot apt-pkg apt-private)
+target_link_libraries(apt-sortpkgs -lnetwork -lroot apt-pkg apt-private)
+target_link_libraries(apt-extracttemplates -lnetwork -lroot apt-pkg apt-private)
+target_link_libraries(apt-internal-solver -lnetwork -lroot apt-pkg apt-private)
+target_link_libraries(apt-dump-solver -lnetwork -lroot apt-pkg apt-private)
+target_link_libraries(apt-internal-planner -lnetwork -lroot apt-pkg apt-private)
 
 set_target_properties(apt-dump-solver
                       PROPERTIES RUNTIME_OUTPUT_DIRECTORY solvers
@@ -55,5 +57,6 @@ install(TARGETS apt-internal-planner RUNTIME DESTINATION ${CMAKE_INSTALL_LIBEXEC
 
 add_slaves(${CMAKE_INSTALL_LIBEXECDIR}/apt/planners ../solvers/dump planners/dump)
 
+#disabled in Haiku
 # Install the not-to-be-compiled programs
-INSTALL(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/apt-key DESTINATION ${CMAKE_INSTALL_BINDIR})
+#INSTALL(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/apt-key DESTINATION ${CMAKE_INSTALL_BINDIR})

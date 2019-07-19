@@ -25,6 +25,10 @@
 #include <pwd.h>
 #include <sys/types.h>
 #include <unistd.h>
+
+#ifdef __HAIKU__
+#include <sys/statvfs.h>
+#else
 #ifdef HAVE_VFS_H
 #include <sys/vfs.h>
 #else
@@ -33,6 +37,8 @@
 #endif
 #include <sys/mount.h>
 #endif
+#endif
+
 #include <errno.h>
 #include <sys/stat.h>
 #include <sys/statvfs.h>
@@ -144,6 +150,8 @@ bool CheckFreeSpaceBeforeDownload(std::string const &Dir, unsigned long long Fet
    }
    else
    {
+//#hack. Disable in Haiku 
+#ifndef __HAIKU__
       unsigned long long const FreeBlocks = _config->Find("APT::Sandbox::User").empty() ? Buf.f_bfree : Buf.f_bavail;
       if (FreeBlocks < (FetchBytes / Buf.f_bsize))
       {
@@ -156,6 +164,7 @@ bool CheckFreeSpaceBeforeDownload(std::string const &Dir, unsigned long long Fet
 	    return _error->Error(_("You don't have enough free space in %s."),
 		  Dir.c_str());
       }
+#endif      
    }
    return true;
 }

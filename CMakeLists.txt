@@ -137,7 +137,7 @@ check_function_exists(getresgid HAVE_GETRESGID)
 check_function_exists(setresuid HAVE_SETRESUID)
 check_function_exists(setresgid HAVE_SETRESGID)
 check_function_exists(ptsname_r HAVE_PTSNAME_R)
-check_function_exists(timegm HAVE_TIMEGM)
+####check_function_exists(timegm HAVE_TIMEGM)
 test_big_endian(WORDS_BIGENDIAN)
 
 # FreeBSD
@@ -224,12 +224,16 @@ configure_file(CMake/config.h.in ${PROJECT_BINARY_DIR}/include/config.h)
 configure_file(CMake/apti18n.h.in ${PROJECT_BINARY_DIR}/include/apti18n.h)
 
 # Add our subdirectories
-add_subdirectory(vendor)
+
 add_subdirectory(apt-pkg)
 add_subdirectory(apt-private)
 add_subdirectory(cmdline)
 add_subdirectory(completions)
-add_subdirectory(doc)
+
+# disabled in Haiku
+# add_subdirectory(doc)
+# add_subdirectory(vendor)
+
 add_subdirectory(dselect)
 add_subdirectory(ftparchive)
 add_subdirectory(methods)

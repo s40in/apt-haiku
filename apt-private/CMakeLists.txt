@@ -12,7 +12,7 @@ file(GLOB_RECURSE headers "*.h")
 add_library(apt-private SHARED ${library})
 
 # Link the library and set the SONAME
-target_link_libraries(apt-private PUBLIC apt-pkg)
+target_link_libraries(apt-private PUBLIC -lnetwork -lroot apt-pkg)
 set_target_properties(apt-private PROPERTIES VERSION ${MAJOR}.${MINOR})
 set_target_properties(apt-private PROPERTIES SOVERSION ${MAJOR})
 set_target_properties(apt-private PROPERTIES CXX_VISIBILITY_PRESET hidden)
